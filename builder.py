@@ -5,8 +5,6 @@ import uuid
 import re
 import html
 
-from zip_maker import make_zip
-
 BASE_DIR = Path(__file__).resolve().parent
 
 THEMES_DIR = BASE_DIR / "themes"
@@ -36,12 +34,14 @@ def build_website(data):
     if website_dir.exists():
         shutil.rmtree(website_dir)
 
-    # Copy the complete theme first.
-    shutil.copytree(
-        theme_dir,
-        website_dir,
-        dirs_exist_ok=True
-    )
+    website_dir.mkdir(parents=True, exist_ok=True)
+
+    # Copy only the theme code needed by this birthday.
+    # Large/static theme assets stay in themes/ and are shared by all birthdays.
+    for filename in (theme_dir / "preview.html", theme_dir / f"{theme}.css", theme_dir / f"{theme}.js"):
+        if not filename.exists():
+            raise ValueError("The selected theme does not contain a valid template.")
+        shutil.copy2(filename, website_dir / filename.name)
 
     # -------------------------
     # PHOTOS
@@ -106,19 +106,7 @@ def build_website(data):
             if music_files:
 
                 source = music_files[0]
-                filename = f"music{source.suffix}"
-
-                shutil.copy2(
-                    source,
-                    website_dir / filename
-                )
-
-                music = filename
-
-    # The theme's own music/ folder is only needed as a source for the
-    # step above. Whichever track was chosen now lives at the top level
-    # as music.<ext>, so drop the extra copy from the generated output.
-    shutil.rmtree(website_dir / "music", ignore_errors=True)
+                music = f"music/{source.name}"
 
     # -------------------------
     # WEBSITE DATA
@@ -261,16 +249,8 @@ def build_website(data):
             f"Unresolved placeholders in: {', '.join(leftover_files)}"
         )
 
-    # -------------------------
-    # ZIP
-    # -------------------------
-
-    zip_file = GENERATED_DIR / f"{birthday_id}.zip"
-
-    make_zip(
-        website_dir,
-        zip_file
-    )
+    # ZIP files are created on demand during download so theme assets
+    # are never duplicated in storage for every birthday.
 
     return {
         "success": True,
