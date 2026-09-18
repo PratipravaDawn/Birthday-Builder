@@ -1,0 +1,1028 @@
+/* =========================================================
+   FUNNY BIRTHDAY THEME
+   ========================================================= */
+
+:root {
+  --bg: #fff8dc;
+  --surface: #ffffff;
+  --yellow: #ffd93d;
+  --yellow-dark: #f2b900;
+  --orange: #ff8c42;
+  --red: #ff5c5c;
+  --pink: #ff6fae;
+  --blue: #5bc0eb;
+  --green: #72d572;
+  --purple: #9b6cff;
+  --text: #171717;
+  --text-soft: #555;
+  --black: #111;
+  --white: #ffffff;
+  --shadow: 7px 7px 0 var(--black);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 20%, #ffd93d 0 5%, transparent 6%),
+    radial-gradient(circle at 90% 15%, #ff6fae 0 5%, transparent 6%),
+    radial-gradient(circle at 20% 85%, #5bc0eb 0 5%, transparent 6%),
+    var(--bg);
+  overflow-x: hidden;
+}
+
+button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.funny-section {
+  width: min(1100px, 92%);
+  margin: auto;
+  padding: 90px 0;
+}
+
+.funny-card {
+  background: var(--surface);
+  border: 4px solid var(--black);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  transform: rotate(-1deg);
+  transition: transform .2s ease;
+}
+
+.funny-card:hover {
+  transform: rotate(1deg) translateY(-5px);
+}
+
+.funny-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 26px;
+  color: var(--black);
+  background: var(--yellow);
+  border: 4px solid var(--black);
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 var(--black);
+  font-weight: 900;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.funny-button:hover {
+  transform: translate(-2px, -2px) rotate(-2deg);
+  box-shadow: 7px 7px 0 var(--black);
+}
+
+.funny-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 1px 1px 0 var(--black);
+}
+
+.funny-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #ffd93d 0 18px,
+      #ff8c42 18px 36px
+    );
+  transition: opacity .5s ease, visibility .5s ease;
+}
+
+.funny-intro.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.funny-intro-box {
+  width: min(550px, 90%);
+  padding: 35px;
+  text-align: center;
+  background: white;
+  border: 5px solid var(--black);
+  border-radius: 25px;
+  box-shadow: 12px 12px 0 var(--black);
+  transform: rotate(-2deg);
+}
+
+.funny-intro-title {
+  margin: 0 0 15px;
+  font-size: clamp(38px, 8vw, 70px);
+  line-height: .9;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.funny-intro-subtitle {
+  color: var(--text-soft);
+  font-size: 18px;
+}
+
+.funny-loading {
+  width: 100%;
+  height: 25px;
+  margin: 25px 0;
+  overflow: hidden;
+  border: 4px solid var(--black);
+  border-radius: 8px;
+  background: #eee;
+}
+
+.funny-loading-bar {
+  width: 0;
+  height: 100%;
+  background: var(--green);
+  transition: width .1s linear;
+}
+
+.funny-hero {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.funny-hero-content {
+  width: min(850px, 100%);
+}
+
+.funny-title {
+  margin: 0;
+  font-size: clamp(48px, 10vw, 105px);
+  line-height: .85;
+  font-weight: 1000;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  text-shadow:
+    5px 5px 0 var(--yellow),
+    9px 9px 0 var(--black);
+}
+
+.funny-subtitle {
+  margin: 30px auto;
+  max-width: 650px;
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 700;
+}
+
+.funny-meme {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--yellow);
+  border: 3px solid var(--black);
+  border-radius: 8px;
+  font-weight: 900;
+  transform: rotate(2deg);
+}
+
+.funny-reveal {
+  opacity: 0;
+  transform: translateY(50px) rotate(-4deg);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.funny-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.funny-shake {
+  animation: funnyShake .45s ease;
+}
+
+@keyframes funnyShake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  20% { transform: translateX(-8px) rotate(-3deg); }
+  40% { transform: translateX(8px) rotate(3deg); }
+  60% { transform: translateX(-6px) rotate(-2deg); }
+  80% { transform: translateX(6px) rotate(2deg); }
+}
+
+.funny-popup {
+  position: fixed;
+  left: 50%;
+  bottom: 25px;
+  z-index: 9000;
+  width: min(500px, calc(100% - 25px));
+  padding: 18px 22px;
+  background: var(--yellow);
+  border: 4px solid var(--black);
+  border-radius: 12px;
+  box-shadow: 7px 7px 0 var(--black);
+  text-align: center;
+  font-weight: 900;
+  opacity: 0;
+  transform: translate(-50%, 130px) rotate(-2deg);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.funny-popup.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0) rotate(-2deg);
+}
+
+.funny-float {
+  position: fixed;
+  z-index: 8000;
+  pointer-events: none;
+  font-size: 30px;
+  animation: funnyFloat linear forwards;
+}
+
+@keyframes funnyFloat {
+  0% {
+    opacity: 0;
+    transform: translate(0, 30px) rotate(0) scale(.5);
+  }
+  15% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform:
+      translate(var(--drift), -110vh)
+      rotate(var(--rotation))
+      scale(1.4);
+  }
+}
+
+.funny-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 25px;
+}
+
+.funny-photo {
+  background: white;
+  border: 4px solid var(--black);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 6px 6px 0 var(--black);
+  transition: transform .2s ease;
+}
+
+.funny-photo:nth-child(odd) { transform: rotate(-3deg); }
+.funny-photo:nth-child(even) { transform: rotate(3deg); }
+
+.funny-photo:hover {
+  transform: rotate(0) scale(1.05);
+}
+
+.funny-cake {
+  position: relative;
+  width: 230px;
+  height: 170px;
+  margin: 35px auto;
+  cursor: pointer;
+}
+
+.funny-cake-layer {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 48px;
+  border: 4px solid var(--black);
+  border-radius: 10px;
+  background: var(--pink);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.funny-cake-layer:nth-child(1) { bottom: 0; }
+
+.funny-cake-layer:nth-child(2) {
+  bottom: 40px;
+  transform: scale(.85);
+  background: var(--yellow);
+}
+
+.funny-cake-layer:nth-child(3) {
+  bottom: 78px;
+  transform: scale(.68);
+  background: var(--blue);
+}
+
+.funny-candles {
+  position: absolute;
+  bottom: 125px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.funny-candle {
+  position: relative;
+  width: 12px;
+  height: 35px;
+  border: 3px solid var(--black);
+  border-radius: 5px;
+  background: var(--purple);
+}
+
+.funny-flame {
+  position: absolute;
+  left: 50%;
+  top: -22px;
+  width: 15px;
+  height: 20px;
+  background: var(--orange);
+  border: 3px solid var(--black);
+  border-radius: 60% 40% 60% 40%;
+  transform: translateX(-50%) rotate(45deg);
+  animation: funnyFlame .15s infinite alternate;
+}
+
+.funny-candle.is-blown .funny-flame {
+  display: none;
+}
+
+@keyframes funnyFlame {
+  from {
+    transform: translateX(-50%) rotate(40deg) scale(.9);
+  }
+  to {
+    transform: translateX(-50%) rotate(50deg) scale(1.1);
+  }
+}
+
+.funny-confetti {
+  position: fixed;
+  top: -30px;
+  z-index: 9500;
+  width: 12px;
+  height: 18px;
+  border: 2px solid var(--black);
+  pointer-events: none;
+  animation: funnyConfetti linear forwards;
+}
+
+@keyframes funnyConfetti {
+  to {
+    transform:
+      translate3d(var(--x), 110vh, 0)
+      rotate(900deg);
+  }
+}
+
+.funny-explosion {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 9600;
+  pointer-events: none;
+  font-size: clamp(40px, 10vw, 100px);
+  font-weight: 1000;
+  color: var(--red);
+  text-shadow: 4px 4px 0 var(--black);
+  transform: translate(-50%, -50%) scale(.2) rotate(-10deg);
+  animation: funnyExplosion .7s ease-out forwards;
+}
+
+@keyframes funnyExplosion {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.2) rotate(-10deg);
+  }
+  30% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.4) rotate(5deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .funny-section { padding: 65px 0; }
+
+  .funny-card {
+    padding: 22px;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .funny-title { font-size: 55px; }
+  .funny-intro-box { padding: 25px; }
+}
+
+
+/* =========================================================
+   MOBILE / TOUCH OPTIMIZATION
+   Designed for phones from ~320px wide upward.
+   ========================================================= */
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.funny-main {
+  width: 100%;
+  overflow-x: clip;
+}
+
+.funny-section {
+  width: min(1100px, 92%);
+}
+
+.funny-card,
+.funny-button,
+.funny-cake,
+.funny-photo,
+.music-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.funny-button {
+  touch-action: manipulation;
+}
+
+.funny-cake {
+  touch-action: manipulation;
+}
+
+.funny-photo img {
+  max-width: 100%;
+}
+
+/* Small phones */
+@media (max-width: 600px) {
+
+  .funny-section {
+    width: calc(100% - 24px);
+    padding: 52px 0;
+  }
+
+  .funny-card {
+    width: 100%;
+    padding: 20px 16px;
+    border-width: 3px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 0 var(--black);
+    transform: none;
+  }
+
+  .funny-card:hover {
+    transform: none;
+  }
+
+  .funny-title {
+    font-size: clamp(42px, 14vw, 62px);
+    line-height: .9;
+    text-shadow:
+      3px 3px 0 var(--yellow),
+      6px 6px 0 var(--black);
+    overflow-wrap: anywhere;
+  }
+
+  .funny-hero {
+    min-height: 78vh;
+    padding-top: 72px;
+  }
+
+  .funny-hero-content {
+    width: 100%;
+  }
+
+  .funny-subtitle {
+    font-size: 17px;
+    line-height: 1.45;
+    margin: 22px auto;
+  }
+
+  .funny-meme {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.3;
+    padding: 8px 11px;
+  }
+
+  .funny-card h2 {
+    font-size: clamp(25px, 7vw, 36px);
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
+  .funny-card p {
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .funny-button {
+    width: min(100%, 330px);
+    min-height: 54px;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  /* Intro */
+  .funny-intro {
+    padding: 12px;
+  }
+
+  .funny-intro-box {
+    width: 100%;
+    max-width: 520px;
+    padding: 24px 16px;
+    border-width: 4px;
+    border-radius: 18px;
+    box-shadow: 7px 7px 0 var(--black);
+  }
+
+  .funny-intro-title {
+    font-size: clamp(36px, 12vw, 58px);
+  }
+
+  .funny-intro-subtitle,
+  .funny-loading-text {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* Fixed music control stays inside the screen */
+  .music-toggle {
+    top: 10px;
+    right: 10px;
+    min-height: 42px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Cake scales down without overflowing */
+  .funny-cake {
+    width: min(230px, 82vw);
+    height: min(170px, 61vw);
+    min-height: 150px;
+    margin: 30px auto;
+    transform-origin: center center;
+  }
+
+  .funny-candles {
+    gap: clamp(14px, 5vw, 25px);
+  }
+
+  /* Gallery: one photo per row on phones */
+  .funny-gallery {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .funny-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    padding: 7px;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--black);
+    transform: none !important;
+  }
+
+  .funny-photo:hover {
+    transform: none;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .funny-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #f7f7f7;
+  }
+
+  /* Chaos/gift stacks cleanly */
+  .funny-chaos-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .funny-chaos-left,
+  .funny-chaos-right {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .funny-chaos-gif-box {
+    height: min(220px, 58vw);
+    min-height: 170px;
+  }
+
+  .funny-chaos-gif-box span {
+    font-size: 48px;
+  }
+
+  /* Full-screen photo popup */
+  .funny-lightbox {
+    padding: 10px;
+    touch-action: manipulation;
+  }
+
+  .funny-lightbox img {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+    width: auto;
+    height: auto;
+    border-width: 3px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .funny-popup {
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+    max-width: 500px;
+    padding: 14px 15px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .funny-float {
+    font-size: 25px;
+  }
+
+  .funny-explosion {
+    max-width: 95vw;
+    text-align: center;
+    font-size: clamp(34px, 12vw, 72px);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+
+  .funny-section {
+    width: calc(100% - 18px);
+    padding: 44px 0;
+  }
+
+  .funny-card {
+    padding: 18px 13px;
+  }
+
+  .funny-title {
+    font-size: 39px;
+  }
+
+  .funny-button {
+    font-size: 14px;
+    padding-inline: 10px;
+  }
+
+  .funny-cake {
+    width: 210px;
+  }
+
+  .funny-cake-layer {
+    left: 6px;
+    right: 6px;
+  }
+}
+
+/* Devices with a short viewport */
+@media (max-height: 650px) and (max-width: 600px) {
+  .funny-hero {
+    min-height: 90vh;
+  }
+
+  .funny-intro-box {
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+.funny-chaos-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.funny-chaos-left {
+    flex: 1;
+}
+
+.funny-chaos-right {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.funny-chaos-gif-box {
+    width: 100%;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.funny-chaos-gif-box span {
+    font-size: 60px;
+}
+
+.funny-chaos-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 18px;
+}
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    border: none;
+    border-radius: 999px;
+
+    padding: 10px 16px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.2s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* =========================================================
+   REPAIRED PHOTO GALLERY
+   ========================================================= */
+
+.funny-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+.funny-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+
+  display: block;
+
+  padding: 10px;
+
+  background: #fff;
+  border: 4px solid var(--black);
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 var(--black);
+
+  cursor: zoom-in;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.funny-photo:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.funny-photo:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.funny-photo img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 4px;
+}
+
+.funny-photo:hover {
+  transform: rotate(0) scale(1.03);
+  box-shadow: 8px 8px 0 var(--black);
+}
+
+.funny-gallery-subtitle {
+  margin-bottom: 28px;
+}
+
+/* =========================================================
+   PHOTO POPUP / LIGHTBOX
+   Clicking anywhere closes it.
+   No close button.
+   ========================================================= */
+
+.funny-lightbox {
+  position: fixed;
+  inset: 0;
+
+  z-index: 15000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(0, 0, 0, .88);
+
+  opacity: 0;
+  visibility: hidden;
+
+  cursor: zoom-out;
+
+  transition:
+    opacity .2s ease,
+    visibility .2s ease;
+}
+
+.funny-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.funny-lightbox img {
+  display: block;
+
+  max-width: 92vw;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border: 4px solid var(--white);
+  border-radius: 10px;
+
+  box-shadow: 10px 10px 0 var(--black);
+
+  cursor: zoom-out;
+}
+
+/* =========================================================
+   ROAST SECTION
+   ========================================================= */
+
+.funny-roast-card {
+  text-align: center;
+}
+
+.funny-roast-card .funny-meme {
+  margin-bottom: 12px;
+}
+
+/* =========================================================
+   CHAOS / GIFTS
+   ========================================================= */
+
+.funny-chaos-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.funny-chaos-left {
+  flex: 1;
+}
+
+.funny-chaos-right {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.funny-chaos-gif-box {
+  width: 100%;
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 4px solid var(--black);
+  border-radius: 18px;
+
+  background: var(--yellow);
+  box-shadow: 6px 6px 0 var(--black);
+}
+
+.funny-chaos-gif-box span {
+  font-size: 60px;
+}
+
+.funny-chaos-gif {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .funny-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .funny-chaos-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .funny-chaos-right {
+    width: 100%;
+  }
+
+  .funny-chaos-gif-box {
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .funny-gallery {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .funny-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .funny-lightbox {
+    padding: 12px;
+  }
+
+  .funny-lightbox img {
+    max-width: 94vw;
+    max-height: 86vh;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--black);
+  }
+
+  .funny-chaos-gif-box {
+    height: 220px;
+  }
+}
+
+
+/* Hide unused photo slots for 1–6 photo websites. */
+.funny-photo:has(img[src=""]){display:none!important;}
+
+.site-footer{
+    text-align:center;
+    padding:25px 15px;
+    margin-top:40px;
+    color:#7a8b99;
+    font-size:13px;
+    font-weight:600;
+}

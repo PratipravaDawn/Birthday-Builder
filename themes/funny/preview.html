@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday {{NAME}}!</title>
+
+    <link rel="stylesheet" href="funny.css">
+</head>
+
+<body>
+
+    <audio id="birthdayMusic" loop preload="auto"></audio>
+
+    <button id="musicToggle" class="music-toggle" type="button">
+        🔊 Music
+    </button>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section class="funny-intro">
+
+        <div class="funny-intro-box">
+
+            <h1 class="funny-intro-title">
+                WAIT...<br>
+                IT'S YOUR<br>
+                BIRTHDAY?!
+            </h1>
+
+            <p class="funny-intro-subtitle">
+                Preparing something extremely suspicious... 😂
+            </p>
+
+            <div class="funny-loading">
+                <div class="funny-loading-bar"></div>
+            </div>
+
+            <p class="funny-loading-text">
+                Initializing birthday chaos...
+            </p>
+
+            <button
+                class="funny-button"
+                data-funny-start>
+                LET'S GO! 🚀
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN SEQUENCE
+
+         1. Happy Birthday heading
+         2. Message
+         3. Birthday cake
+         4. Roast Me
+         5. Photo gallery
+         6. Chaos / Gifts
+         7. Final celebration
+         ===================================================== -->
+
+    <main class="funny-main">
+
+
+        <!-- =================================================
+             1. HAPPY BIRTHDAY HEADING
+             ================================================= -->
+
+        <section class="funny-section funny-hero">
+
+            <div class="funny-hero-content">
+
+                <div class="funny-card funny-reveal">
+
+                    <div class="funny-meme">
+                        OFFICIAL BIRTHDAY ALERT 🚨
+                    </div>
+
+                    <h1 class="funny-title">
+                        HAPPY<br>
+                        BIRTHDAY<br>
+                        {{NAME}}!
+                    </h1>
+
+                    <p class="funny-subtitle">
+                        Congratulations on surviving
+                        <strong>{{AGE}}</strong>
+                        years of existence. 😂
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             2. MESSAGE
+             ================================================= -->
+
+        <section class="funny-section">
+
+            <div
+                class="funny-card funny-reveal"
+                data-funny-popup="{{MESSAGE}}">
+
+                <h2>
+                    🎁 A VERY SERIOUS MESSAGE
+                </h2>
+
+                <p>
+                    {{MESSAGE}}
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             3. BIRTHDAY CAKE
+             ================================================= -->
+
+        <section class="funny-section">
+
+            <div class="funny-card funny-reveal">
+
+                <h2>
+                    🎂 THE CAKE DEPARTMENT
+                </h2>
+
+                <p>
+                    Click the cake to blow out the candles.
+                </p>
+
+                <div
+                    class="funny-cake"
+                    data-message="Congratulations. You survived another year. 😂">
+
+                    <div class="funny-cake-layer"></div>
+                    <div class="funny-cake-layer"></div>
+                    <div class="funny-cake-layer"></div>
+
+                    <div class="funny-candles">
+
+                        <div class="funny-candle">
+                            <div class="funny-flame"></div>
+                        </div>
+
+                        <div class="funny-candle">
+                            <div class="funny-flame"></div>
+                        </div>
+
+                        <div class="funny-candle">
+                            <div class="funny-flame"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             4. ROAST ME
+             ================================================= -->
+
+        <section class="funny-section">
+
+            <div class="funny-card funny-reveal funny-roast-card">
+
+                <div class="funny-meme">
+                    ⚠️ ROASTING STATION ⚠️
+                </div>
+
+                <h2>
+                    🔥 ROAST ME
+                </h2>
+
+                <p>
+                    You asked for this. Don't blame me afterwards. 😂
+                </p>
+
+                <button
+                    class="funny-button"
+                    data-funny-action="roast">
+                    ROAST ME 🔥
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             5. PHOTO GALLERY
+             ================================================= -->
+
+        <section class="funny-section">
+
+            <div class="funny-card funny-reveal">
+
+                <h2>
+                    📸 EVIDENCE OF YOUR EXISTENCE
+                </h2>
+
+                <p class="funny-gallery-subtitle">
+                    Six pieces of evidence. Zero chances of appeal. 😂
+                </p>
+
+                <div class="funny-gallery">
+
+                    <div class="funny-photo">
+                        <img
+                            src="{{PHOTO1}}"
+                            alt="Birthday photo 1"
+                            data-caption="Evidence #1 collected. 😂">
+                    </div>
+
+                    <div class="funny-photo">
+                        <img
+                            src="{{PHOTO2}}"
+                            alt="Birthday photo 2"
+                            data-caption="Evidence #2 collected. 😂">
+                    </div>
+
+                    <div class="funny-photo">
+                        <img
+                            src="{{PHOTO3}}"
+                            alt="Birthday photo 3"
+                            data-caption="Evidence #3 collected. 😂">
+                    </div>
+
+                    <div class="funny-photo">
+                        <img
+                            src="{{PHOTO4}}"
+                            alt="Birthday photo 4"
+                            data-caption="Evidence #4 collected. 😂">
+                    </div>
+
+                    <div class="funny-photo">
+                        <img
+                            src="{{PHOTO5}}"
+                            alt="Birthday photo 5"
+                            data-caption="Evidence #5 collected. 😂">
+                    </div>
+
+                    <div class="funny-photo">
+                        <img
+                            src="{{PHOTO6}}"
+                            alt="Birthday photo 6"
+                            data-caption="Evidence #6 collected. 😂">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             6. CHAOS / GIFTS
+             ================================================= -->
+
+        <section class="funny-section">
+
+            <div class="funny-card funny-chaos-card funny-reveal">
+
+                <div class="funny-chaos-left">
+
+                    <div class="funny-meme">
+                        🚨 CHAOS DEPARTMENT 🚨
+                    </div>
+
+                    <h2>
+                        🎁 BIRTHDAY CHAOS
+                    </h2>
+
+                    <p>
+                        Open the gift. Accept the consequences.
+                    </p>
+
+                    <button
+                        class="funny-button"
+                        data-funny-action="chaos">
+                        RELEASE CHAOS 🤪
+                    </button>
+
+                </div>
+
+                <div class="funny-chaos-right">
+
+                    <div
+                        id="chaosGifBox"
+                        class="funny-chaos-gif-box">
+
+                        <span>🎁</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             7. FINAL CELEBRATION
+             ================================================= -->
+
+        <section class="funny-section">
+
+            <div class="funny-card funny-reveal">
+
+                <div class="funny-meme">
+                    🎉 FINAL ATTACK 🎉
+                </div>
+
+                <h2>
+                    ONE LAST THING...
+                </h2>
+
+                <p>
+                    Ready for the final birthday attack?
+                </p>
+
+                <button
+                    class="funny-button"
+                    data-funny-finale="Happy Birthday, you absolute legend! 😂🎂">
+                    FINISH WITH CHAOS 💥
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         PHOTO LIGHTBOX
+         Created by funny.js.
+         Clicking anywhere closes it.
+         No close button.
+         ===================================================== -->
+
+
+    <div class="funny-popup"></div>
+    <footer class="site-footer">
+    Made with ❤️ by Dawn & GPT
+</footer>
+
+    <script src="funny.js"></script>
+
+</body>
+</html>

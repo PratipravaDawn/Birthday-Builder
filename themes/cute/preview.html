@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"></script>
+    <title>Happy Birthday {{NAME}}!</title>
+    <link rel="stylesheet" href="cute.css">
+</head>
+<body>
+    <audio id="birthdayMusic" loop preload="auto"></audio>
+    <button id="musicToggle" class="music-toggle" type="button">Music</button>
+
+    <section class="cute-intro">
+        <div class="envelope" role="button" tabindex="0" aria-label="Open birthday surprise">
+            <div class="envelope-back"></div>
+            <div class="envelope-letter">
+                <div>
+                    <h2>Happy Birthday!</h2>
+                    <p>A little surprise for {{NAME}}</p>
+                </div>
+            </div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-front"></div>
+        </div>
+        <div class="envelope-flowers" aria-hidden="true"><img src="gifs/flower.gif" alt=""><img src="gifs/flower.gif" alt=""></div>
+        <p class="cute-intro-hint">Click the envelope to open your surprise</p>
+    </section>
+
+    <main class="cute-main">
+        <section class="cute-section cute-hero">
+            <div class="cute-hero-content cute-reveal">
+                <h1 class="cute-title">Happy Birthday {{NAME}}!</h1>
+                <p class="cute-age">{{AGE}} years old ✨</p>
+                <p class="cute-final-message cute-hero-message">{{MESSAGE}}</p>
+            </div>
+        </section>
+
+        <section class="cute-section cute-reveal">
+            <div class="cute-card">
+                <h2>Make a Wish!</h2>
+                <p class="cute-section-text cake-hint">Blow out the candles</p>
+                <div class="cute-cake-stage cute-model-stage">
+                    <div class="cute-knife" aria-hidden="true"><span></span></div>
+                    <div class="cute-cake-smoke" aria-hidden="true"></div>
+                    <model-viewer id="birthdayCakeModel" class="cute-cake-model" src="cake_model/scene.gltf" alt="Birthday cake" camera-controls disable-pan shadow-intensity="1" exposure="1.05" camera-orbit="0deg 72deg auto" interaction-prompt="none" tabindex="0" role="button" aria-label="Birthday cake. Press to blow out the candles."></model-viewer>
+                </div>
+            </div>
+        </section>
+
+        <section class="cute-section cute-reveal">
+            <div class="cute-card">
+                <h2>Sweet Memories</h2>
+                <p class="cute-section-text">Tap a photo to see it properly.</p>
+                <div class="cute-gallery">
+                    <button class="cute-photo" type="button"><img src="{{PHOTO1}}" alt="Birthday memory 1"></button>
+                    <button class="cute-photo" type="button"><img src="{{PHOTO2}}" alt="Birthday memory 2"></button>
+                    <button class="cute-photo" type="button"><img src="{{PHOTO3}}" alt="Birthday memory 3"></button>
+                    <button class="cute-photo" type="button"><img src="{{PHOTO4}}" alt="Birthday memory 4"></button>
+                    <button class="cute-photo" type="button"><img src="{{PHOTO5}}" alt="Birthday memory 5"></button>
+                    <button class="cute-photo" type="button"><img src="{{PHOTO6}}" alt="Birthday memory 6"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cute-section cute-reveal">
+            <div class="cute-card">
+                <h2>A Little Surprise</h2>
+                <p class="cute-section-text">Something adorable is hiding inside.</p>
+                <div class="cute-gift-wrap">
+                    <div class="cute-gift" tabindex="0" role="button" aria-label="Open the gift">
+                        <div class="cute-gift-box"></div>
+                        <div class="cute-gift-ribbon-v"></div>
+                        <div class="cute-gift-ribbon-h"></div>
+                        <div class="cute-gift-lid"></div>
+                        <div class="cute-gift-bow"></div>
+                    </div>
+                    <p class="cute-gift-hint">Click the gift</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cute-section cute-final cute-reveal">
+            <div class="cute-card">
+                <div class="final-balloons" aria-hidden="true"></div>
+                <h2 class="final-title">HAPPY BIRTHDAY {{NAME}}!</h2>
+                <button class="cute-button" data-cute-celebrate="Happy Birthday {{NAME}}!" type="button">
+                    Celebrate!
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <div class="cute-lightbox" aria-hidden="true">
+        <img src="" alt="Expanded birthday memory">
+    </div>
+
+    <div class="cute-popup" aria-live="polite"></div>
+    <footer class="site-footer">
+    Made with ❤️ by Dawn & GPT
+    </footer>
+    <script src="cute.js"></script>
+</body>
+</html>

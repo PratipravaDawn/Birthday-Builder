@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Happy Birthday {{NAME}}!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dreamy.css">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+<audio id="birthdayMusic" loop preload="auto"></audio>
+<button id="musicToggle" class="music-toggle" type="button" aria-label="Toggle music">♪</button>
+
+<div class="dream-sky" aria-hidden="true">
+  <div class="sky-wash"></div>
+  <div class="star-field" id="starField"></div>
+  <div class="shooting-stars" id="shootingStars"></div>
+  <img class="dream-moon" id="dreamMoon" src="moon.png" alt="">
+</div>
+
+<div class="dream-intro" id="dreamIntro">
+  <div class="intro-copy">
+    <span class="eyebrow">a little birthday dream</span>
+    <h1>Happy Birthday</h1>
+    <p>{{NAME}}, tonight the stars have something special for you.</p>
+    <button class="dream-button" id="enterDream">Enter the Night <span>✦</span></button>
+  </div>
+</div>
+
+<main class="dream-main" id="dreamMain">
+  <section class="dream-section hero-section" id="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">today, the sky celebrates you</span>
+      <h2>Happy Birthday<br><em>{{NAME}}</em></h2>
+      <p>{{AGE}} years of memories, wonder and little moments worth keeping.</p>
+      <button class="dream-button scroll-next" data-target="message">Begin the Journey <span>✦</span></button>
+    </div>
+    <span class="brush-note note-one">make a wish</span>
+    <span class="brush-note note-two">follow the stars</span>
+  </section>
+
+  <section class="dream-section message-section" id="message">
+    <div class="painted-paper reveal">
+      <span class="eyebrow">a message for you</span>
+      <h2>For {{NAME}}</h2>
+      <p>{{MESSAGE}}</p>
+      <span class="paper-mark">♥</span>
+    </div>
+    <button class="dream-button scroll-next" data-target="cake">To the little light <span>✦</span></button>
+  </section>
+
+  <section class="dream-section cake-section" id="cake">
+    <div class="section-heading reveal">
+      <span class="eyebrow">make a wish</span>
+      <h2>A Little Light</h2>
+      <p>A little birthday magic for you.</p>
+    </div>
+
+    <div class="cake-stage reveal" id="cakeStage">
+      <model-viewer class="pond-cake" src="cake/scene.gltf"
+        camera-controls disable-zoom interaction-prompt="none"
+        camera-orbit="0deg 72deg auto"
+        camera-target="auto auto auto"
+        shadow-intensity="0.8" exposure="1"
+        alt="A dreamy pond cake"></model-viewer>
+      <div class="cake-glow"></div>
+    </div>
+
+    <div class="cake-wish show" id="cakeWish" aria-live="polite">✨ Happy Birthday! ✨</div>
+    <button class="dream-button scroll-next cake-next" id="cakeNext" data-target="gallery">Keep the memories <span>✦</span></button>
+  </section>
+
+  <section class="dream-section gallery-section" id="gallery">
+    <div class="section-heading reveal">
+      <span class="eyebrow">little pieces of time</span>
+      <h2>Memories Among the Stars</h2>
+      <p>Every picture is a little star of its own.</p>
+    </div>
+
+    <div class="memory-gallery" id="memoryGallery">
+      <button class="memory-photo reveal" data-photo="{{PHOTO1}}" type="button"><span class="photo-frame"><img src="{{PHOTO1}}" alt="Birthday memory 1"></span><span class="photo-star">✦</span></button>
+      <button class="memory-photo reveal" data-photo="{{PHOTO2}}" type="button"><span class="photo-frame"><img src="{{PHOTO2}}" alt="Birthday memory 2"></span><span class="photo-star">✦</span></button>
+      <button class="memory-photo reveal" data-photo="{{PHOTO3}}" type="button"><span class="photo-frame"><img src="{{PHOTO3}}" alt="Birthday memory 3"></span><span class="photo-star">✦</span></button>
+      <button class="memory-photo reveal" data-photo="{{PHOTO4}}" type="button"><span class="photo-frame"><img src="{{PHOTO4}}" alt="Birthday memory 4"></span><span class="photo-star">✦</span></button>
+      <button class="memory-photo reveal" data-photo="{{PHOTO5}}" type="button"><span class="photo-frame"><img src="{{PHOTO5}}" alt="Birthday memory 5"></span><span class="photo-star">✦</span></button>
+      <button class="memory-photo reveal" data-photo="{{PHOTO6}}" type="button"><span class="photo-frame"><img src="{{PHOTO6}}" alt="Birthday memory 6"></span><span class="photo-star">✦</span></button>
+    </div>
+
+    <button class="dream-button scroll-next" data-target="paint">Paint a Wish <span>✦</span></button>
+  </section>
+
+
+  <section class="dream-section paint-section" id="paint">
+    <div class="section-heading reveal">
+      <span class="eyebrow">leave a little magic</span>
+      <h2>Paint a Wish</h2>
+      <p>Draw a little star, heart, or anything you want to leave in the sky.</p>
+    </div>
+
+    <div class="paint-window reveal">
+      <div class="paint-window-top">
+        <span class="paint-dot"></span>
+        <span class="paint-dot"></span>
+        <span class="paint-dot"></span>
+        <span class="paint-window-title">your little canvas</span>
+      </div>
+
+      <div class="paint-canvas-wrap">
+        <canvas id="wishCanvas" aria-label="Draw your birthday wish"></canvas>
+        <span class="paint-hint" id="paintHint">Draw something ✦</span>
+      </div>
+
+      <div class="paint-tools" aria-label="Painting tools">
+        <button class="paint-tool active" type="button" data-tool="brush">🖌️ Brush</button>
+        <button class="paint-tool" type="button" data-tool="star">✦ Star</button>
+        <button class="paint-tool" type="button" data-tool="heart">♥ Heart</button>
+        <button class="paint-tool" type="button" data-tool="glow">✧ Glow</button>
+        <button class="paint-clear" id="clearWish" type="button">Clear</button>
+      </div>
+    </div>
+
+    <button class="dream-button" id="finishWish" type="button">Leave it in the sky <span>✦</span></button>
+  </section>
+
+  <section class="dream-section finale-section" id="finale">
+    <div class="finale-stars" id="finaleStars"></div>
+    <div class="wish-in-sky" id="wishInSky" aria-hidden="true"></div>
+    <div class="finale-copy reveal">
+      <span class="eyebrow">one last wish</span>
+      <h2>Happy Birthday<br><em>{{NAME}}</em></h2>
+      <p>May your next chapter be brighter than the stars. ✦</p>
+    </div>
+  </section>
+</main>
+
+<div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+  <img id="lightboxImage" alt="Birthday memory">
+</div>
+
+<footer class="site-footer">Made with ❤️ by Dawn &amp; GPT</footer>
+<script src="dreamy.js"></script>
+</body>
+</html>

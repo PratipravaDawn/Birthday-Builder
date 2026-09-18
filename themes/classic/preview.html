@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday {{NAME}}!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+<link rel="stylesheet" href="classic.css">
+</head>
+<body>
+<audio id="birthdayMusic" loop preload="auto"></audio>
+<button id="musicToggle" class="music-toggle" type="button" aria-label="Toggle music" title="Toggle music">🔇</button>
+
+<section class="normal-intro">
+  <div class="card-cover">
+    <div class="card-ornament">✦</div>
+    <div class="card-kicker">A Birthday Celebration</div>
+    <h1>Happy Birthday</h1>
+    <div class="cover-name">{{NAME}}</div>
+    <div class="gold-rule">✦　✦　✦</div>
+    <p>A special day deserves a special celebration.</p>
+    <div class="card-hint">Tap anywhere on the card to begin ✦</div>
+  </div>
+</section>
+
+<div class="ambient-particles" aria-hidden="true"></div>
+
+<main class="normal-main">
+  <section class="normal-section hero-section normal-reveal">
+    <div class="eyebrow">With warmest wishes</div>
+    <h2 class="hero-title">Happy Birthday <span>{{NAME}}</span></h2>
+    <div class="age-line">{{AGE}} years of wonderful memories</div>
+    <p class="hero-message">{{MESSAGE}}</p>
+    <div class="ornamental-divider">❦</div>
+  </section>
+
+  <section class="normal-section normal-reveal">
+    <div class="letter">
+      <div class="letter-seal">♥</div>
+      <div class="eyebrow">A Birthday Letter</div>
+      <h2 class="section-title">Dear {{NAME}},</h2>
+      <p class="letter-text">{{MESSAGE}}</p>
+      <p class="letter-sign">With warmest wishes,<br><span>♥</span></p>
+    </div>
+  </section>
+
+  <section class="normal-section normal-reveal cake-section">
+    <div class="eyebrow">Make a wish</div>
+    <h2 class="section-title">Your Birthday Cake</h2>
+    <div class="ornamental-divider">❦</div>
+    <div class="cake-box" id="cakeBox">
+      <model-viewer id="birthdayCakeModel" class="birthday-cake-model"
+        src="cake/scene.gltf"
+        alt="3D birthday cake"
+        disable-pan
+        disable-zoom
+        interaction-prompt="none"
+        camera-orbit="0deg 72deg 4.5m"
+        shadow-intensity="1"
+        exposure="1.05">
+      </model-viewer>
+      <p class="cake-hint">Click the cake ♥</p>
+    </div>
+  </section>
+
+  <section class="normal-section normal-reveal">
+    <div class="eyebrow">Memories</div>
+    <h2 class="section-title">A Classic Photo Album</h2>
+    <div class="ornamental-divider">❦</div>
+    <div class="album">
+      <div class="album-page">
+        <div class="normal-gallery">
+          <button class="normal-photo" type="button"><img src="{{PHOTO1}}" alt="Birthday memory 1"></button>
+          <button class="normal-photo" type="button"><img src="{{PHOTO2}}" alt="Birthday memory 2"></button>
+          <button class="normal-photo" type="button"><img src="{{PHOTO3}}" alt="Birthday memory 3"></button>
+          <button class="normal-photo" type="button"><img src="{{PHOTO4}}" alt="Birthday memory 4"></button>
+          <button class="normal-photo" type="button"><img src="{{PHOTO5}}" alt="Birthday memory 5"></button>
+          <button class="normal-photo" type="button"><img src="{{PHOTO6}}" alt="Birthday memory 6"></button>
+        </div>
+      </div>
+    </div>
+    <p class="album-hint">Tap a photograph to view it</p>
+  </section>
+
+  <section class="normal-section normal-reveal surprise-section">
+    <div class="eyebrow">A little something extra</div>
+    <h2 class="section-title">A Birthday Envelope</h2>
+    <div class="ornamental-divider">❦</div>
+    <button class="envelope" id="birthdayEnvelope" type="button" aria-label="Open birthday envelope">
+      <span class="envelope-flap"></span>
+      <span class="envelope-paper">A little note<br>for you ♥</span>
+      <span class="envelope-body"></span>
+      <span class="wax-seal">♥</span>
+    </button>
+    <p class="envelope-hint">Open the envelope</p>
+    <div class="envelope-message" id="envelopeMessage">May this year bring you beautiful moments, genuine smiles, and many reasons to celebrate. ♥</div>
+  </section>
+
+  <section class="normal-section normal-reveal final-section">
+    <div class="final-card">
+      <div class="eyebrow">One final wish</div>
+      <h2 class="final-title">Happy Birthday<br><span>{{NAME}}</span></h2>
+      <p class="final-message">{{MESSAGE}}</p>
+      <div class="final-ornament">✦　♥　✦</div>
+      <button class="normal-button" data-normal-action="celebrate">Celebrate!</button>
+    </div>
+  </section>
+</main>
+
+<div class="normal-lightbox" id="normalLightbox" aria-hidden="true">
+  <img id="lightboxImage" src="" alt="Birthday memory">
+</div>
+
+<div class="normal-popup" aria-live="polite"></div>
+<div class="normal-celebration" id="celebration" aria-hidden="true">
+  <div class="celebration-box">
+    <div class="celebration-stars">✦　✧　✦</div>
+    <div class="eyebrow">A toast to another wonderful year</div>
+    <h2>Happy Birthday<br><span>{{NAME}}</span> ♥</h2>
+    <p>{{MESSAGE}}</p>
+  </div>
+</div>
+
+<footer class="site-footer">Made with ❤️ by Dawn & GPT</footer>
+<script src="classic.js"></script>
+</body>
+</html>

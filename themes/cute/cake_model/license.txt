@@ -1,0 +1,11 @@
+Model Information:
+* title:	Birthday cake
+* source:	https://sketchfab.com/3d-models/birthday-cake-c4e8ceebf53b4e77b5ff12ac2c7b5fda
+* author:	bluem_moss (https://sketchfab.com/bluem_moss)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Birthday cake" (https://sketchfab.com/3d-models/birthday-cake-c4e8ceebf53b4e77b5ff12ac2c7b5fda) by bluem_moss (https://sketchfab.com/bluem_moss) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

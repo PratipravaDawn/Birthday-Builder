@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday {{NAME}}!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"></script>
+<link rel="stylesheet" href="romantic.css">
+</head>
+<body>
+<audio id="birthdayMusic" loop preload="auto"></audio>
+<button id="musicToggle" class="music-toggle" type="button">🔊 Music</button>
+
+<section class="romantic-intro">
+  <div class="romantic-intro-box">
+    <div class="heart-lock" data-romantic-start role="button" tabindex="0" aria-label="Unlock birthday surprise">
+      <span class="heart-lock-shackle"></span>
+      <span class="heart-lock-body">♥<small>OPEN</small></span>
+    </div>
+    <div class="romantic-intro-kicker">a little story made just for you</div>
+    <h1 class="romantic-intro-title">For {{NAME}}</h1>
+    <p class="romantic-intro-text">Turn the key, open the memories, and step into a little story made with love.</p>
+    <p class="romantic-intro-hint">Tap the heart to unlock ♥</p>
+  </div>
+</section>
+
+<div class="film-bg" aria-hidden="true"><div class="film-strip film-strip-one"></div><div class="film-strip film-strip-two"></div></div>
+
+<main class="romantic-main">
+  <section class="romantic-section romantic-hero romantic-reveal">
+    
+    <div class="romantic-hero-content">
+      <div class="romantic-eyebrow">today, and every day</div>
+      <h1 class="romantic-title">Happy Birthday <span>{{NAME}}</span></h1>
+      <div class="romantic-age">{{AGE}} years among beautiful memories ✦</div>
+      <p class="romantic-subtitle">{{MESSAGE}}</p>
+      <div class="hero-heart">♥</div>
+    </div>
+  </section>
+
+  <section class="romantic-section romantic-reveal">
+    <div class="romantic-section-head">
+      <div class="romantic-eyebrow">the pages between the moments</div>
+      <h2 class="romantic-heading">Our Story</h2><div class="romantic-heading-line"></div>
+    </div>
+    <div class="story-list">
+      <article class="story-row">
+        <div class="story-photo"><img src="{{PHOTO1}}" alt="Memory 1"><span class="photo-number">01</span></div>
+        <div class="story-note"><span class="story-kicker">for someone extraordinary</span><h3>For Someone Extraordinary</h3><p>If the stars had a favorite person, I think they'd choose you. Of all the beautiful things in this world, somehow you still manage to stand out.</p><span class="story-sign">some beauty is simply impossible to overlook ♡</span></div>
+      </article>
+      <article class="story-row story-row-reverse">
+        <div class="story-photo"><img src="{{PHOTO2}}" alt="Memory 2"><span class="photo-number">02</span></div>
+        <div class="story-note"><span class="story-kicker">somewhere along the way</span><h3>The Little Things</h3><p>The laughs, the random conversations, the tiny moments that somehow became the ones you remember most.</p><span class="story-sign">the ordinary became special ♡</span></div>
+      </article>
+      <article class="story-row">
+        <div class="story-photo"><img src="{{PHOTO3}}" alt="Memory 3"><span class="photo-number">03</span></div>
+        <div class="story-note"><span class="story-kicker">a few more pages later</span><h3>Still Making Memories</h3><p>Some stories are not meant to have an ending. They just keep collecting beautiful little chapters.</p><span class="story-sign">to be continued... ♡</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="romantic-section romantic-reveal">
+    <div class="romantic-section-head">
+      <div class="romantic-eyebrow">little pieces of happiness</div>
+      <h2 class="romantic-heading">Just Because ♥</h2><div class="romantic-heading-line"></div>
+    </div>
+    <div class="gif-grid">
+      <figure class="gif-card"><img src="gifs/1.gif" alt="Cute romantic moment"><figcaption>you make ordinary days sweeter</figcaption></figure>
+      <figure class="gif-card"><img src="gifs/2.gif" alt="Cute romantic moment"><figcaption>one tiny moment at a time</figcaption></figure>
+      <figure class="gif-card"><img src="gifs/3.gif" alt="Cute romantic moment"><figcaption>always worth another smile</figcaption></figure>
+      <figure class="gif-card"><img src="gifs/4.gif" alt="Cute romantic moment"><figcaption>a little love, just for you</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="romantic-section romantic-reveal">
+    <div class="romantic-section-head">
+      <div class="romantic-eyebrow">moments worth keeping</div>
+      <h2 class="romantic-heading">Polaroid Memories</h2><div class="romantic-heading-line"></div>
+      <p class="section-intro">A few snapshots from a story that deserves to be remembered.</p>
+    </div>
+    <div class="polaroid-gallery">
+      <button class="polaroid p1" type="button"><span class="polaroid-tape"></span><span class="polaroid-photo"><img src="{{PHOTO1}}" alt="Birthday memory 1"></span><span class="polaroid-caption">one for the album ♡</span></button>
+      <button class="polaroid p2" type="button"><span class="polaroid-tape"></span><span class="polaroid-photo"><img src="{{PHOTO2}}" alt="Birthday memory 2"></span><span class="polaroid-caption">keep this one</span></button>
+      <button class="polaroid p3" type="button"><span class="polaroid-tape"></span><span class="polaroid-photo"><img src="{{PHOTO3}}" alt="Birthday memory 3"></span><span class="polaroid-caption">a favorite little moment</span></button>
+      <button class="polaroid p4" type="button"><span class="polaroid-tape"></span><span class="polaroid-photo"><img src="{{PHOTO4}}" alt="Birthday memory 4"></span><span class="polaroid-caption">and the story continues...</span></button>
+      <button class="polaroid p5" type="button"><span class="polaroid-tape"></span><span class="polaroid-photo"><img src="{{PHOTO5}}" alt="Birthday memory 5"></span><span class="polaroid-caption">another page ♡</span></button>
+      <button class="polaroid p6" type="button"><span class="polaroid-tape"></span><span class="polaroid-photo"><img src="{{PHOTO6}}" alt="Birthday memory 6"></span><span class="polaroid-caption">save this forever</span></button>
+    </div>
+  </section>
+
+  <section class="romantic-section romantic-reveal jar-section">
+    <div class="romantic-section-head">
+      <div class="romantic-eyebrow">one little thing for you</div>
+      <h2 class="romantic-heading">A Jar Full of Hearts</h2><div class="romantic-heading-line"></div>
+      <p class="section-intro">Every heart inside has a little message waiting for you.</p>
+    </div>
+    <button class="jar-stage" id="heartJarButton" type="button" aria-label="Open a sweet message from the jar">
+      <span class="jar-glow"></span>
+      <model-viewer id="heartJarModel" class="heart-jar" src="jar_of_hearts/scene.gltf" alt="A jar full of hearts" camera-controls disable-pan disable-zoom interaction-prompt="none" camera-orbit="0deg 75deg auto" camera-target="auto auto auto" shadow-intensity="0.8"></model-viewer>
+      <span class="jar-hint">tap the jar ♥</span>
+    </button>
+    <div class="jar-message" id="jarMessage" aria-live="polite"><span>♥</span><p>Click the jar and take a little message with you.</p></div>
+  </section>
+
+  <section class="romantic-section romantic-final-section romantic-reveal">
+    <div class="final-film-frame">
+      <div class="romantic-eyebrow">one last frame</div>
+      <h2 class="romantic-final-title">Happy Birthday<br><span>{{NAME}}</span> ♥</h2>
+      <p class="romantic-final-text">{{MESSAGE}}</p>
+      <div class="final-hearts">♥ ♡ ♥ ♡ ♥</div>
+    </div>
+  </section>
+</main>
+
+<div class="photo-lightbox" id="photoLightbox" aria-hidden="true">
+  <div class="lightbox-inner"><img id="lightboxImage" src="" alt="Expanded birthday memory"></div>
+</div>
+
+<footer class="site-footer">Made with ❤️ by Dawn & GPT</footer>
+<script src="romantic.js"></script>
+</body>
+</html>
